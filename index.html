@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Girişimci Mühendisler Kulübü | GMK</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Font: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    
+    <!-- Harici CSS (style.css) -->
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+        * { font-family: 'Poppins', sans-serif; }
+        .section-content { display: none; }
+        .section-content.active { display: block; }
+        .nav-link { cursor: pointer; }
+        .nav-link.active { color: #a78bfa; font-weight: 600; }
+        .cert-result { transition: all 0.3s ease; }
+        .cert-result.success { background: #dcfce7; border-color: #22c55e; color: #166534; }
+        .cert-result.error { background: #fee2e2; border-color: #ef4444; color: #991b1b; }
+        .cert-result.default { background: #f1f5f9; border-color: #cbd5e1; color: #1e293b; }
+        .mobile-menu { transition: transform 0.3s ease-in-out; }
+        .mobile-menu.hidden { transform: translateX(100%); }
+        .mobile-menu.visible { transform: translateX(0); }
+    </style>
+</head>
+<body>
+
+    <!-- ===== ARKA PLAN LOGO ===== -->
+    <div id="logo-bg">
+        <img src="logo.png" alt="GMK Logo" />
+    </div>
+
+   <!-- ========== NAVIGASYON (YENİ AÇILIR MENÜ SİSTEMİ) ========== -->
+    <header class="fixed top-0 left-0 z-50 w-full bg-black/90 backdrop-blur-md border-b border-white/10">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between relative">
+            
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2 text-white font-bold text-xl transition hover:opacity-80">
+                <img src="logo.png" alt="GMK Logo" class="h-7 w-auto rounded-full object-cover" />
+                <span class="text-indigo-400">GMK</span>
+            </a>
+
+            <!-- Desktop Menü -->
+            <ul class="hidden md:flex items-center gap-6 text-sm font-medium text-gray-300">
+                <li><a class="nav-link active" data-section="anasayfa">Anasayfa</a></li>
+                <li><a class="nav-link" data-section="faaliyetler">Faaliyetler</a></li>
+                <li><a class="nav-link" data-section="uyeler">Üyeler</a></li>
+                <li><a class="nav-link" data-section="bultenler">Bültenler</a></li>
+                <li><a class="nav-link" data-section="basari">Başarılar</a></li>
+                <li><a class="nav-link" data-section="iletisim">İletişim</a></li>
+                <li><a class="nav-link" data-section="sertifika">Sertifika Kontrol</a></li>
+            </ul>
+
+            <!-- Masaüstü Başvuru Butonu -->
+            <div class="hidden md:block">
+                <a href="https://forms.gle/6U86qXKAVfLM6xxT8" target="_blank" class="bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium px-5 py-2 rounded-full transition">
+                    Üyelik Başvurusu
+                </a>
+            </div>
+
+            <!-- MOBİL: Yeni Açılır Menü (Dropdown) Butonu -->
+            <button id="mobile-dropdown-btn" class="md:hidden flex items-center gap-2 bg-white/5 border border-white/10 px-4 py-2 rounded-xl text-white font-medium active:scale-95 transition">
+                <span id="current-section-text">Anasayfa</span>
+                <svg id="dropdown-arrow" class="transition-transform duration-300" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+        </nav>
+
+        <!-- MOBİL: Açılır Menü İçeriği (Header'ın hemen altından açılır) -->
+        <div id="mobile-dropdown-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-black/95 border-b border-white/10 shadow-2xl flex flex-col py-2">
+            <a class="nav-link-mobile block px-6 py-3 text-white text-lg border-b border-white/5" data-section="anasayfa">Anasayfa</a>
+            <a class="nav-link-mobile block px-6 py-3 text-white text-lg border-b border-white/5" data-section="faaliyetler">Faaliyetler</a>
+            <a class="nav-link-mobile block px-6 py-3 text-white text-lg border-b border-white/5" data-section="uyeler">Üyeler</a>
+            <a class="nav-link-mobile block px-6 py-3 text-white text-lg border-b border-white/5" data-section="bultenler">Bültenler</a>
+            <a class="nav-link-mobile block px-6 py-3 text-white text-lg border-b border-white/5" data-section="basari">Başarılar</a>
+            <a class="nav-link-mobile block px-6 py-3 text-white text-lg border-b border-white/5" data-section="iletisim">İletişim</a>
+            <a class="nav-link-mobile block px-6 py-3 text-white text-lg" data-section="sertifika">Sertifika Kontrol</a>
+            
+            <a href="https://forms.gle/6U86qXKAVfLM6xxT8" target="_blank" class="block mx-6 my-4 text-center bg-indigo-600 hover:bg-indigo-700 text-white font-medium py-3 rounded-xl transition shadow-lg">
+                Üyelik Başvurusu
+            </a>
+        </div>
+    </header>
+
+    <!-- ========== ANA İÇERİK ========== -->
+    <main class="pt-20 text-white min-h-screen">
+
+        <!-- 1. ANASAYFA -->
+        <section id="section-anasayfa" class="section-content active">
+            <div class="relative overflow-hidden bg-cover bg-center py-24 md:py-32">
+                <div class="max-w-5xl mx-auto px-4 text-center">
+                    <div class="inline-flex items-center gap-2 border border-white/15 rounded-full px-4 py-2 text-sm mb-6 bg-black/30 backdrop-blur-sm">
+                        <span>🚀 Sivas'ın En Büyük Öğrenci Topluluğu</span>
+                        <span class="w-px h-4 bg-white/20"></span>
+                    </div>
+                    <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-white to-indigo-300 bg-clip-text text-transparent drop-shadow-lg">
+                        Girişimci Mühendisler <br/> Kulübü
+                    </h1>
+                    <p class="max-w-2xl mx-auto mt-6 text-gray-200 text-base md:text-lg bg-black/20 p-4 rounded-xl backdrop-blur-sm">
+                        Sivas Cumhuriyet Üniversitesi Girişimci Mühendisler Kulübü olarak, 
+                        teoriyi sahaya taşıyor, mühendis adaylarını Ar-Ge, inovasyon 
+                        ve sektörle buluşturuyoruz.
+                    </p>
+                    
+                    <!-- DÜZENLENEN BUTONLAR -->
+                    <div class="flex flex-wrap justify-center gap-4 mt-8">
+                        <button onclick="openEtkinlikModal()" class="bg-indigo-600 hover:bg-indigo-700 px-8 py-3 rounded-full font-medium transition shadow-lg">Etkinliklere Katıl</button>
+                        <a href="#hakkinda-bolumu" class="border border-white/20 hover:bg-white/10 px-8 py-3 rounded-full font-medium transition bg-black/30 backdrop-blur-sm">Daha Fazla</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DÜZENLENEN HAKKINDA BÖLÜMÜ (ID EKLENDİ) -->
+            <div id="hakkinda-bolumu" class="max-w-5xl mx-auto px-4 py-16 grid md:grid-cols-2 gap-12">
+                <div class="bg-black/40 backdrop-blur-md p-8 rounded-2xl border border-white/10 shadow-xl">
+                    <h2 class="text-2xl font-bold text-indigo-300 mb-4">Hakkında</h2>
+                    <p class="text-gray-200 leading-relaxed">
+                        Sivas Cumhuriyet Üniversitesi bünyesinde faaliyet gösteren ve sahip olduğu dev ekosistemle Sivas'ın en büyük öğrenci topluluğu konumunda olan Girişimci Mühendisler Kulübü; mühendis adaylarını teorik eğitimin ötesine taşıyarak saha, Ar-Ge ve inovasyon ekosistemiyle buluşturmayı hedefleyen aktif bir öğrenci topluluğudur.
+                    </p>
+                </div>
+                <div class="bg-black/40 backdrop-blur-md p-8 rounded-2xl border border-white/10 shadow-xl">
+                    <h2 class="text-2xl font-bold text-indigo-300 mb-4">Amacımız</h2>
+                    <p class="text-gray-200 leading-relaxed">
+                        Öğrencilerimizin teknoloji, girişimcilik ve sektörel yetkinliklerini geliştirmek, onları geleceğin mesleklerine ve iş dünyasına hazırlamaktır. Bu doğrultuda teknik geziler, sektör buluşmaları ve uygulamalı eğitimler düzenleyerek sadece okuyan değil, üreten, analitik düşünen ve sektöre liderlik edecek "Girişimci Mühendisler" yetiştirmek için çalışıyoruz.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. FAALİYETLER -->
+        <section id="section-faaliyetler" class="section-content max-w-6xl mx-auto px-4 py-16">
+            <h2 class="text-3xl font-bold text-center mb-12 drop-shadow-md">📅 Kendi Düzenlediğimiz Faaliyetler</h2>
+            <div id="faaliyetler-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <p class="text-gray-400 col-span-full text-center bg-black/40 p-4 rounded-xl backdrop-blur-sm">Yükleniyor...</p>
+            </div>
+
+            <h2 class="text-3xl font-bold text-center mt-24 mb-12 drop-shadow-md">🚀 Katılım Sağladığımız Etkinlikler</h2>
+            <div id="katilimlar-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <p class="text-gray-400 col-span-full text-center bg-black/40 p-4 rounded-xl backdrop-blur-sm">Yükleniyor...</p>
+            </div>
+        </section>
+
+        <!-- 3. ÜYELER -->
+        <section id="section-uyeler" class="section-content max-w-6xl mx-auto px-4 py-16">
+            <h2 class="text-3xl font-bold text-center mb-12 drop-shadow-md">👥 Yönetim Kadrosu</h2>
+            <div id="uyeler-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <p class="text-gray-400 col-span-full text-center bg-black/40 p-4 rounded-xl backdrop-blur-sm">Yükleniyor...</p>
+            </div>
+            
+            <div class="mt-32 max-w-6xl mx-auto">
+                <h3 class="text-3xl font-bold text-center mb-12 drop-shadow-md">🏢 Organizasyon Yapısı</h3>
+                <div id="organizasyon-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <p class="text-gray-400 text-center col-span-full bg-black/40 p-4 rounded-xl backdrop-blur-sm">CSV'den yükleniyor...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. BAŞARILAR -->
+        <section id="section-basari" class="section-content max-w-5xl mx-auto px-4 py-16">
+            <h2 class="text-3xl font-bold text-center mb-12 drop-shadow-md">🏆 Başarılarımız</h2>
+            <div id="basarilar-container" class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <p class="text-gray-400 col-span-full text-center bg-black/40 p-4 rounded-xl backdrop-blur-sm">Yükleniyor...</p>
+            </div>
+        </section>
+
+        <!-- 5. BÜLTENLER -->
+        <section id="section-bultenler" class="section-content max-w-6xl mx-auto px-4 py-16">
+            <h2 class="text-3xl font-bold text-center mb-12 drop-shadow-md">📰 Bültenlerimiz</h2>
+            <div id="bultenler-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <p class="text-gray-400 col-span-full text-center bg-black/40 p-4 rounded-xl backdrop-blur-sm">Yükleniyor...</p>
+            </div>
+        </section>
+
+        <!-- 6. İLETİŞİM -->
+        <section id="section-iletisim" class="section-content max-w-4xl mx-auto px-4 py-16">
+            <h2 class="text-3xl font-bold text-center mb-12 drop-shadow-md flex items-center justify-center gap-3">
+                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-400"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                İletişim
+            </h2>
+            <div class="bg-black/50 backdrop-blur-md p-6 sm:p-8 rounded-2xl border border-white/10 text-center space-y-6 shadow-xl">
+                <div>
+                    <p class="text-gray-300 text-sm">E-posta</p>
+                    <!-- YENİ: break-all silindi. Yerine mobilde minik, pc'de büyük olacak dinamik yapı ve "asla alt satıra inme (whitespace-nowrap)" eklendi -->
+                    <p class="text-[11px] sm:text-sm md:text-lg font-medium text-white whitespace-nowrap">girisimcimuhendislerkulubu@gmail.com</p>
+                </div>
+                <div>
+                    <p class="text-gray-300 text-sm">Telefon</p>
+                    <p class="text-lg font-medium text-white">0 553 663 1019</p>
+                </div>
+                <div class="flex justify-center gap-6 text-2xl mt-4">
+                    <a href="https://www.linkedin.com/company/giri%C5%9Fimci-m%C3%BChendisler-kul%C3%BCb%C3%BC/" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-indigo-400 transition" aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/girisimci.muhendisler?igsh=MW9keTkwNGM2NGVxOQ==" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-indigo-400 transition" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="https://chat.whatsapp.com/CpvxtnwP3Cd19pbCrQszVf" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-indigo-400 transition" aria-label="WhatsApp">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                    </a>
+                </div>
+                <p class="text-sm text-gray-400">Sivas Cumhuriyet Üniversitesi · Mühendislik Fakültesi</p>
+            </div>
+        </section>
+
+        <!-- 7. SERTİFİKA KONTROL -->
+        <section id="section-sertifika" class="section-content max-w-2xl mx-auto px-4 py-16">
+            <h2 class="text-3xl font-bold text-center mb-8 drop-shadow-md">📜 Sertifika Teyit</h2>
+            <div class="bg-black/60 backdrop-blur-md p-8 rounded-2xl border border-white/10 shadow-xl">
+                <p class="text-gray-200 text-center mb-6">Katılım sertifikanızın doğruluğunu kontrol etmek için tescil numarasını girin.</p>
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <input type="text" id="cert-input" placeholder="Örn: GMK-26-001" 
+                           class="flex-1 bg-black/80 border border-white/20 rounded-full px-5 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 transition shadow-inner" />
+                    <button id="cert-check-btn" class="bg-indigo-600 hover:bg-indigo-700 px-8 py-3 rounded-full font-medium transition whitespace-nowrap shadow-lg">
+                        Doğrula
+                    </button>
+                </div>
+                <div id="cert-result" class="cert-result default mt-6 p-4 rounded-xl border-2 flex items-center gap-3 text-sm transition-all shadow-md">
+                    <span id="result-icon">⏳</span>
+                    <span id="result-message" class="font-medium">Sertifika numaranızı girin ve doğrulayın.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= ETKİNLİK MODAL (KÜÇÜK PENCERE) ================= -->
+        <div id="etkinlik-modal" class="fixed inset-0 z-[100] hidden flex items-center justify-center bg-black/80 backdrop-blur-sm transition-opacity">
+            <div class="bg-black/90 border border-indigo-500/30 rounded-2xl p-6 max-w-2xl w-full mx-4 max-h-[85vh] overflow-y-auto shadow-[0_0_50px_rgba(79,70,229,0.2)] relative">
+                <button onclick="closeEtkinlikModal()" class="absolute top-4 right-5 text-gray-400 hover:text-white text-3xl font-light leading-none transition">&times;</button>
+                <h3 class="text-2xl font-bold text-indigo-400 mb-6 border-b border-white/10 pb-4 flex items-center gap-2">🚀 Güncel Başvurular</h3>
+                <div id="etkinlik-modal-icerik" class="space-y-4">
+                    <p class="text-gray-400 text-center py-4">Etkinlikler yükleniyor...</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="border-t border-white/10 py-8 text-center text-sm text-gray-400 bg-black/60 backdrop-blur-sm">
+        <p>© 2026 Girişimci Mühendisler Kulübü · Sivas Cumhuriyet Üniversitesi</p>
+        <p class="mt-1">SİVTEK · Teknoloji Ekosistemi</p>
+    </footer>
+
+    <!-- ========== SCRIPTS ========== -->
+    <script src="script.js"></script>
+
+</body>
+</html>

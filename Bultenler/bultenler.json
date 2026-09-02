@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "baslik": "Mühendislik Bülteni - Sayı 1",
+        "tarih": "30.03.2026",
+        "resim_yolu": "Bultenler/Resimler/bulten1.jpg"
+    },
+    {
+        "id": 2,
+        "baslik": "Mühendislik Bülteni - Sayı 2",
+        "tarih": "06.04.2026",
+        "resim_yolu": "Bultenler/Resimler/bulten2.jpg"
+    },
+    {
+        "id": 3,
+        "baslik": "Mühendislik Bülteni - Sayı 3",
+        "tarih": "13.04.2026",
+        "resim_yolu": "Bultenler/Resimler/bulten3.jpg"
+    },
+    {
+        "id": 4,
+        "baslik": "Mühendislik Bülteni - Sayı 4",
+        "tarih": "20.04.2026",
+        "resim_yolu": "Bultenler/Resimler/bulten4.jpg"
+    },
+    {
+        "id": 5,
+        "baslik": "Mühendislik Bülteni - Sayı 5",
+        "tarih": "27.04.2026",
+        "resim_yolu": "Bultenler/Resimler/bulten5.jpg"
+    },
+    {
+        "id": 6,
+        "baslik": "Mühendislik Bülteni - Sayı 6",
+        "tarih": "04.05.2026",
+        "resim_yolu": "Bultenler/Resimler/bulten6.jpg"
+    },
+    {
+        "id": 7,
+        "baslik": "Mühendislik Bülteni - Sayı 7",
+        "tarih": "11.05.2026",
+        "resim_yolu": "Bultenler/Resimler/bulten7.jpg"
+    },
+    {
+        "id": 8,
+        "baslik": "Mühendislik Bülteni - Sayı 8",
+        "tarih": "18.05.2026",
+        "resim_yolu": "Bultenler/Resimler/bulten8.jpg"
+    },
+    {
+        "id": 9,
+        "baslik": "Mühendislik Bülteni - Sayı 9",
+        "tarih": "25.05.2026",
+        "resim_yolu": "Bultenler/Resimler/bulten9.jpg"
+    },
+    {
+        "id": 10,
+        "baslik": "Mühendislik Bülteni - Sayı 10",
+        "tarih": "01.06.2026",
+        "resim_yolu": "Bultenler/Resimler/bulten10.jpg"
+    }
+]

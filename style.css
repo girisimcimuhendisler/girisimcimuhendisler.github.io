@@ -1,0 +1,235 @@
+/* ========================================
+   style.css - Girişimci Mühendisler Kulübü
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #000000;
+    color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* ----- ARKA PLAN LOGO (sabit, büyük, saydam) ----- */
+#logo-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.12; 
+}
+
+#logo-bg img {
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain;
+    display: block;
+}
+
+/* ----- Scrollbar ----- */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+::-webkit-scrollbar-thumb {
+    background: #4f46e5;
+    border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #6366f1;
+}
+
+/* ----- Section Geçişleri ----- */
+.section-content {
+    display: none;
+    animation: fadeUp 0.4s ease forwards;
+}
+.section-content.active {
+    display: block;
+}
+@keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* ----- Navbar Link Aktif ----- */
+.nav-link {
+    position: relative;
+    transition: color 0.2s ease;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background: #818cf8;
+    transition: width 0.3s ease;
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+.nav-link.active {
+    color: #a78bfa;
+}
+
+/* ----- Mobil Menü Linkleri ----- */
+.nav-link-mobile {
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+.nav-link-mobile:hover {
+    color: #a78bfa;
+    transform: scale(1.05);
+}
+
+/* ----- Kartlar (Faaliyet & Üye) ----- */
+.gmk-card {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1.25rem;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    cursor: pointer; /* Tıklanabilir olduğunu gösterir */
+}
+.gmk-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(129, 140, 248, 0.4);
+    box-shadow: 0 20px 40px -12px rgba(79, 70, 229, 0.2);
+    background: rgba(255, 255, 255, 0.09);
+}
+.gmk-card img {
+    border-radius: 1rem;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+.gmk-card:hover img {
+    transform: scale(1.03);
+}
+.gmk-card .card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 0.75rem;
+    color: #f1f5f9;
+}
+.gmk-card .card-sub {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    margin-top: 0.2rem;
+}
+.gmk-card .card-desc {
+    font-size: 0.9rem;
+    color: #cbd5e1;
+    margin-top: 0.5rem;
+    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ----- KART ODAKLANMA (FOCUS) SİSTEMİ ----- */
+.grid-focus-mode {
+    display: block !important;
+}
+
+.gmk-card.focused-card {
+    max-width: 800px; 
+    margin: 0 auto; 
+    border-color: rgba(129, 140, 248, 0.8); 
+    box-shadow: 0 0 50px rgba(79, 70, 229, 0.3); 
+    transform: none !important; 
+    background: rgba(0, 0, 0, 0.8); 
+}
+
+.gmk-card.focused-card .card-desc {
+    display: block;
+    -webkit-line-clamp: unset;
+    font-size: 1rem; 
+    margin-top: 1rem;
+}
+.gmk-card.focused-card img {
+    height: auto;
+    max-height: 400px;
+    object-fit: contain;
+}
+
+/* ----- Sertifika Sonuç Kutusu ----- */
+.cert-result {
+    transition: all 0.3s ease;
+    border-width: 2px;
+}
+.cert-result.success {
+    background: rgba(5, 46, 22, 0.8);
+    border-color: #22c55e;
+    color: #bbf7d0;
+}
+.cert-result.error {
+    background: rgba(69, 10, 10, 0.8);
+    border-color: #ef4444;
+    color: #fecaca;
+}
+.cert-result.default {
+    background: rgba(15, 23, 42, 0.8);
+    border-color: #334155;
+    color: #94a3b8;
+}
+
+/* ----- Buton / Input Odak ----- */
+input:focus {
+    outline: none;
+}
+
+/* ----- Üyelik Başvurusu Butonu ----- */
+.uyelik-btn {
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    transition: all 0.3s ease;
+}
+.uyelik-btn:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 30px rgba(79, 70, 229, 0.3);
+}
+
+/* ----- Footer Linkleri ----- */
+.footer-link {
+    transition: color 0.2s ease;
+}
+.footer-link:hover {
+    color: #818cf8;
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 640px) {
+    .gmk-card img {
+        height: 160px;
+    }
+    .section-content {
+        padding-top: 1rem;
+        padding-bottom: 2rem;
+    }
+}

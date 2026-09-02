@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "baslik": "İpekyolu Kariyer Fuarı",
+        "tarih": "16 Mayıs 2026",
+        "resim_yolu": "Faaliyetler/Resimler/katilim1.jpg",
+        "metin_yolu": "Faaliyetler/Metinler/katilim1.txt"
+    },
+    {
+        "id": 2,
+        "baslik": "Yandex Anadolu Hackathon",
+        "tarih": "13 Nisan 2026",
+        "resim_yolu": "Faaliyetler/Resimler/katilim2.jpg",
+        "metin_yolu": "Faaliyetler/Metinler/katilim2.txt"
+    },
+    {
+        "id": 3,
+        "baslik": "TEKNOFEST 2026",
+        "tarih": "10 Nisan 2026",
+        "resim_yolu": "Faaliyetler/Resimler/katilim3.jpg",
+        "metin_yolu": "Faaliyetler/Metinler/katilim3.txt"
+    }
+]

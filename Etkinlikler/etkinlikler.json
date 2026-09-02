@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "baslik": "Teknik Gezi - CÜTAM & Teknokent",
+        "tarih": "2026-02-26",
+        "konum": "CÜTAM ve Cumhuriyet Teknokent",
+        "resim_yolu": "Etkinlikler/Resimler/afis1.jpg",
+        "aciklama": "SCÜ İleri Teknoloji Araştırma ve Uygulama Merkezi ile Cumhuriyet Teknokent Ar-Ge firmalarına düzenlediğimiz, kontenjan sınırlı teknik gezimiz.",
+        "link": "https://forms.gle/ornek-link"
+    },
+    {
+        "id": 2,
+        "baslik": "Teknik Gezi - Tezmaksan",
+        "tarih": "2026-03-12",
+        "konum": "Tezmaksan Robot Technologies",
+        "resim_yolu": "Etkinlikler/Resimler/afis2.jpg",
+        "aciklama": "Demirağ Organize Sanayi Bölgesi iş birliğiyle, ileri robot teknolojileri ve CNC otomasyon sistemlerini yerinde incelediğimiz teknik gezimiz.",
+        "link": "https://forms.gle/ornek-link"
+    },
+    {
+        "id": 3,
+        "baslik": "Teknik Gezi - Gökrail",
+        "tarih": "2026-04-27",
+        "konum": "Gökrail (Demirağ OSB)",
+        "resim_yolu": "Etkinlikler/Resimler/afis3.jpg",
+        "aciklama": "Demirağ Organize Sanayi Bölgesi'nde faaliyet gösteren Gökrail tesislerine yönelik, demiryolu araçları ve imalat teknolojilerini incelediğimiz teknik gezi.",
+        "link": "https://forms.gle/ornek-link"
+    },
+    {
+        "id": 4,
+        "baslik": "Teknik Gezi - CÜNAM",
+        "tarih": "2026-05-04",
+        "konum": "CÜNAM (Nanofotonik Araştırma Merkezi)",
+        "resim_yolu": "Etkinlikler/Resimler/afis4.jpg",
+        "aciklama": "Sivas Cumhuriyet Üniversitesi Nanofotonik Uygulama ve Araştırma Merkezi'nin laboratuvar altyapısını ve optik/fotonik çalışmalarını yerinde incelediğimiz teknik gezi.",
+        "link": "https://forms.gle/ornek-link"
+    },
+    {
+        "id": 5,
+        "baslik": "Mühendislik Zirvesi 2026",
+        "tarih": "2026-05-13",
+        "konum": "100. Yıl Kültür Merkezi",
+        "resim_yolu": "Etkinlikler/Resimler/afis5.jpg",
+        "aciklama": "İnavasyon, teknoloji ve iş birliği odaklı; sektörün liderlerinden ilham veren konuşmalar, yeni teknolojiler ve networking fırsatlarıyla dolu dev zirve.",
+        "link": "https://forms.gle/ornek-link"
+    }
+]

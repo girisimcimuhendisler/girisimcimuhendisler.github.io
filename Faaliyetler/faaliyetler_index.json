@@ -1,0 +1,51 @@
+[
+    {
+        "id": 1,
+        "baslik": "CÜTAM Teknik Gezisi",
+        "tarih": "26 Şubat 2026",
+        "resim_yolu": "Faaliyetler/Resimler/faaliyet1.jpg",
+        "metin_yolu": "Faaliyetler/Metinler/faaliyet1.txt"
+    },
+    {
+        "id": 2,
+        "baslik": "TEKNOKENT Teknik Gezisi",
+        "tarih": "26 Şubat 2026",
+        "resim_yolu": "Faaliyetler/Resimler/faaliyet2.jpg",
+        "metin_yolu": "Faaliyetler/Metinler/faaliyet2.txt"
+    },
+    {
+        "id": 3,
+        "baslik": "Tezmaksan Teknik Gezisi",
+        "tarih": "12 Mart 2026",
+        "resim_yolu": "Faaliyetler/Resimler/faaliyet3.jpg",
+        "metin_yolu": "Faaliyetler/Metinler/faaliyet3.txt"
+    },
+    {
+        "id": 4,
+        "baslik": "Astro Hackathon Sivas",
+        "tarih": "28 Mart 2026",
+        "resim_yolu": "Faaliyetler/Resimler/faaliyet4.jpg",
+        "metin_yolu": "Faaliyetler/Metinler/faaliyet4.txt"
+    },
+    {
+        "id": 5,
+        "baslik": "GÖKRAİL Teknik Gezisi",
+        "tarih": "27 Nisan 2026",
+        "resim_yolu": "Faaliyetler/Resimler/faaliyet5.jpg",
+        "metin_yolu": "Faaliyetler/Metinler/faaliyet5.txt"
+    },
+    {
+        "id": 6,
+        "baslik": "CÜNAM Teknik Gezisi",
+        "tarih": "4 Mayıs 2026",
+        "resim_yolu": "Faaliyetler/Resimler/faaliyet6.jpg",
+        "metin_yolu": "Faaliyetler/Metinler/faaliyet6.txt"
+    },
+    {
+        "id": 7,
+        "baslik": "Mühendislik Zirvesi 2026",
+        "tarih": "13 Mayıs 2026",
+        "resim_yolu": "Faaliyetler/Resimler/faaliyet7.jpg",
+        "metin_yolu": "Faaliyetler/Metinler/faaliyet7.txt"
+    }
+]
