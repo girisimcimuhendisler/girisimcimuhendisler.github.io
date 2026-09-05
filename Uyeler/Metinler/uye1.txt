@@ -1,8 +1,0 @@
-Bilgisayar Mühendisliği 3.Sınıf <br>
-Eğitmenlik Tecrübesi: Sivas Bilim ve Teknoloji Üniversitesi'nde (SBTÜ) gönüllü Java ve Algoritma eğitmenliği yapmıştır. Ayrıca GSB ve DENEYAP atölyelerinde Robotik Kodlama, Mobil Uygulama ve Siber Güvenlik branşlarında resmi eğitmen olarak görev almaktadır.
-<br>
-Stratejik Temsiliyet: Kulüp başkanlığı görevinin yanı sıra, Teknofest Kulübünün yönetiminde ve TeknoNext SCÜ Kampüs Temsilcisi olarak farklı teknoloji ağlarında da aktif rol üstlenmektedir.
-<br>
-Dijital İçerik Üreticiliği: "Geleceğin Mühendisi" adlı YouTube kanalında, yaklaşık 15 bin abonesine yönelik teknoloji ve eğitim odaklı videolar üretmektedir.
-<br>
-Teknik Donanım ve Prototipleme: Yazılım bilgisinin yanı sıra; elektronik devre tasarımı, 3D modelleme (Autodesk Fusion, FreeCAD), Arduino/STM32/ESP32 geliştirme kartları ve 3D yazıcı operasyonları konusunda aktif proje geliştirme yetkinliğine sahiptir.
