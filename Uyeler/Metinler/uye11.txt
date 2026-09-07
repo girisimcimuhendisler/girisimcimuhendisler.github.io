@@ -1,5 +1,4 @@
 Bilgisayar Mühendisliği 3. Sınıf<br>
-
 Yazılım ve Web Geliştirme: ASP.NET MVC, C# ve Java teknolojilerini kullanarak katmanlı mimari (N-Tier) yapısında web uygulamaları ve içerik yönetim sistemleri (CMS) geliştirme konusunda deneyim sahibidir.
 Yapay Zeka ve Üretken Teknolojiler: Yapay zeka teknolojilerine büyük bir ilgi duymakta ve kendini bu alanda sürekli geliştirmeyi hedeflemektedir. Güncel üretken yapay zeka araçlarını (Bolt.new, Claude, Perplexity vb.) aktif olarak kullanarak dijital içerik üretmiş ve proje süreçlerine entegrasyon sağlamıştır.
 Tasarım ve Görselleştirme (UI/UX & 3D): Kullanıcı deneyimini ön planda tutan Ul/UX tasarımına ilgi duymakta ve bu alanda çalışmalar yürütmektedir. Ayrıca Blender ile 3 boyutlu tasarım, mekan modelleme gibi 3D tasarım deneyimlerine sahiptir.
