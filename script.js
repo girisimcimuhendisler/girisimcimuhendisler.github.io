@@ -407,44 +407,81 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // ---------- BÜLTENLER (Dinamik Render) ----------
+    // ---------- BÜLTENLER (Dönemlere Göre Dinamik Render) ----------
     const bultenContainer = document.getElementById('bultenler-container');
 
     async function loadBultenler() {
+        if (!bultenContainer) return;
+
         try {
-            const response = await fetch('Bultenler/bultenler.json');
-            if (!response.ok) throw new Error('bultenler.json yüklenemedi');
-            const data = await response.json();
-            renderBultenler(data);
+            // Ana dizin dosyasını çekiyoruz. (Yeniden eskiye sıralı olarak)
+            const response = await fetch('Bultenler/donemler.json');
+            if (!response.ok) throw new Error('donemler.json yüklenemedi');
+            const donemler = await response.json();
+            
+            bultenContainer.innerHTML = ''; // İçeriği temizle
+
+            if (!donemler || donemler.length === 0) {
+                bultenContainer.innerHTML = `<div class="text-gray-400 text-center py-10">Henüz dönem veya bülten eklenmemiş.</div>`;
+                return;
+            }
+
+            // Her dönem için fetch işlemini başlat
+            for (const donem of donemler) {
+                await renderDonemBultenleri(donem);
+            }
+
         } catch (error) {
             console.error('Bültenler yüklenirken hata:', error);
-            if (bultenContainer) {
-                bultenContainer.innerHTML = `<div class="col-span-full text-center text-red-400 bg-red-900/20 p-6 rounded-xl border border-red-800">⚠️ Bültenler yüklenirken bir sorun oluştu.</div>`;
-            }
+            bultenContainer.innerHTML = `<div class="text-center text-red-400 bg-red-900/20 p-6 rounded-xl border border-red-800">⚠️ Bültenler yüklenirken bir sorun oluştu. donemler.json dosyasını kontrol edin.</div>`;
         }
     }
 
-    function renderBultenler(data) {
-        if (!bultenContainer) return;
+    async function renderDonemBultenleri(donemKlasoru) {
+        try {
+            // Klasörün içindeki JSON'u çek
+            const response = await fetch(`Bultenler/${donemKlasoru}/bultenler.json`);
+            if (!response.ok) return; // Klasör veya JSON yoksa hata verme, sadece atla
+            const data = await response.json();
 
-        if (!data || data.length === 0) {
-            bultenContainer.innerHTML = `<div class="col-span-full text-gray-400 text-center py-10">Henüz bülten eklenmemiş.</div>`;
-            return;
+            if (!data || data.length === 0) return; // İçi boşsa ekranda başlık kalabalığı yapma
+
+            // Klasör adını güzel bir ekrana yansıtma başlığına çevir (Örn: 2026-2027-guz -> 2026-2027 Güz Dönemi)
+            let baslikMetni = donemKlasoru.replace('-guz', ' Güz Dönemi').replace('-bahar', ' Bahar Dönemi');
+
+            // HTML: Dönem Başlığı
+            const sectionTitle = document.createElement('h3');
+            sectionTitle.className = "text-xl sm:text-2xl font-bold text-indigo-300 mt-12 mb-6 border-b border-white/10 pb-3";
+            sectionTitle.textContent = baslikMetni;
+
+            // HTML: O dönemin bülten kartlarını tutacak Grid yapı
+            const gridContainer = document.createElement('div');
+            gridContainer.className = "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6";
+
+            let cardsHtml = '';
+            data.forEach(item => {
+                let resim = item.resim_yolu || 'https://via.placeholder.com/400x300/1a1a1a/4f46e5?text=Bülten';
+                if(resim.startsWith('Resimler/')) {
+                    resim = `Bultenler/${donemKlasoru}/${resim}`;
+                }
+
+                cardsHtml += `
+                    <div class="gmk-card" title="Detayları görmek için tıklayın" onclick="toggleCardFocus(this)">
+                        <img src="${resim}" alt="${item.baslik || 'Bülten'}" loading="lazy" />
+                        <div class="card-title">${item.baslik || 'Başlıksız'}</div>
+                        <div class="card-sub">${item.tarih || ''}</div>
+                    </div>
+                `;
+            });
+            gridContainer.innerHTML = cardsHtml;
+
+            // Oluşturulan başlığı ve kartları ana bülten taşıyıcısına ekle
+            bultenContainer.appendChild(sectionTitle);
+            bultenContainer.appendChild(gridContainer);
+
+        } catch (error) {
+            console.error(`${donemKlasoru} bültenleri yüklenirken hata:`, error);
         }
-
-        let html = '';
-        data.forEach(item => {
-            const resim = item.resim_yolu || 'https://via.placeholder.com/400x300/1a1a1a/4f46e5?text=Bülten';
-            
-            html += `
-                <div class="gmk-card" title="Detayları görmek için tıklayın" onclick="toggleCardFocus(this)">
-                    <img src="${resim}" alt="${item.baslik || 'Bülten'}" loading="lazy" />
-                    <div class="card-title">${item.baslik || 'Başlıksız'}</div>
-                    <div class="card-sub">${item.tarih || ''}</div>
-                </div>
-            `;
-        });
-        bultenContainer.innerHTML = html;
     }
 
     // ---------- BAŞLATICI ----------
