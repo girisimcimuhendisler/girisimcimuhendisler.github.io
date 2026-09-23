@@ -180,9 +180,11 @@
 
         <!-- 5. BÜLTENLER -->
         <section id="section-bultenler" class="section-content max-w-6xl mx-auto px-4 py-16">
-            <h2 class="text-3xl font-bold text-center mb-12 drop-shadow-md">📰 Bültenlerimiz</h2>
-            <div id="bultenler-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <p class="text-gray-400 col-span-full text-center bg-black/40 p-4 rounded-xl backdrop-blur-sm">Yükleniyor...</p>
+            <h2 class="text-3xl font-bold text-center mb-4 drop-shadow-md">📰 Bültenlerimiz</h2>
+            
+            <!-- Grid yapısını sildik, yerine flex-col verdik. Grid'ler JS içinden dönemlere özel eklenecek -->
+            <div id="bultenler-container" class="flex flex-col w-full">
+                <p class="text-gray-400 text-center bg-black/40 p-4 rounded-xl backdrop-blur-sm">Yükleniyor...</p>
             </div>
         </section>
 
