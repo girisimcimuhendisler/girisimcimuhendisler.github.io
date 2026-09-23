@@ -19,7 +19,7 @@ window.toggleCardFocus = function(card) {
         card.classList.add('focused-card');
         container.classList.add('grid-focus-mode');
 
-        // YENİ: Büyüyen karta otomatik odaklan ve ekranı kaydır
+        // Büyüyen karta otomatik odaklan ve ekranı kaydır
         setTimeout(() => {
             // Sabit menünün (navbar) kartın üstünü kapatmaması için -100 piksel pay bırakıyoruz
             const yOffset = -100; 
@@ -268,22 +268,37 @@ document.addEventListener('DOMContentLoaded', function() {
                 return { ...item, metin };
             }));
             
-            const container = document.getElementById('uyeler-container');
-            if(!container) return;
+            const ustContainer = document.getElementById('ust-kadro-container');
+            const uyelerContainer = document.getElementById('uyeler-container');
             
-            let html = '';
+            if(!ustContainer || !uyelerContainer) return;
+            
+            let ustHtml = '';
+            let uyelerHtml = '';
+
             cards.forEach(item => {
-                html += `
+                const htmlTemplate = `
                     <div class="gmk-card text-center" onclick="toggleCardFocus(this)">
-                        <!-- YENİ: Resim boyutlandırması kare (aspect-square) olacak şekilde ayarlandı ve css kısıtlaması (height: auto !important) ezip geçildi -->
                         <img src="${item.resim_yolu}" alt="${item.ad_soyad}" loading="lazy" class="w-full aspect-square object-cover rounded-xl" style="height: auto !important;" />
                         <div class="card-title mt-4">${item.ad_soyad}</div>
                         <div class="card-sub">${item.unvan}</div>
                         <div class="card-desc text-sm mt-2">${item.metin}</div>
                     </div>`;
+                
+                // id="0" (Danışman) ve id="1" (Başkan) üstte yan yana olacak
+                if (item.id === "0" || item.id === "1" || item.id === 0 || item.id === 1) {
+                    ustHtml += htmlTemplate;
+                } else {
+                    uyelerHtml += htmlTemplate;
+                }
             });
-            container.innerHTML = html;
-        } catch (error) {}
+
+            ustContainer.innerHTML = ustHtml;
+            uyelerContainer.innerHTML = uyelerHtml;
+            
+        } catch (error) {
+            console.error('Üyeler yüklenirken hata:', error);
+        }
     }
 
     async function loadOrganizasyon() {
@@ -383,8 +398,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 resBox.classList.add('success');
                 icon.textContent = '✅'; 
                 
-                // YENİ: Hem adı soyadı hem de JSON'daki türü (type) ekrana yazdırıyoruz
-                // (Eğer JSON'da alan adı 'type' yerine başka bir şeyse, örn record.etkinlik yapabilirsin)
                 const sertifikaTuru = record.type ? `(${record.type})` : '';
                 msg.textContent = `Doğrulandı: ${record.name} ${sertifikaTuru}`;
             } else {
@@ -423,7 +436,6 @@ document.addEventListener('DOMContentLoaded', function() {
         data.forEach(item => {
             const resim = item.resim_yolu || 'https://via.placeholder.com/400x300/1a1a1a/4f46e5?text=Bülten';
             
-            // Link kaldırıldı, diğer kartlar gibi tıklandığında direkt büyüyen sade yapıya çevrildi
             html += `
                 <div class="gmk-card" title="Detayları görmek için tıklayın" onclick="toggleCardFocus(this)">
                     <img src="${resim}" alt="${item.baslik || 'Bülten'}" loading="lazy" />
