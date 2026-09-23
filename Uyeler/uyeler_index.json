@@ -1,5 +1,12 @@
 [
     {
+        "id": 0,
+        "ad_soyad": "Arş. Gör. Ahmet Utku ELİK",
+        "unvan": "Kulüp Danışmanı",
+        "resim_yolu": "Uyeler/Resimler/danisman.jpg",
+        "metin_yolu": "Uyeler/Metinler/danisman.txt"
+    },
+    {
         "id": 1,
         "ad_soyad": "Tayyip ÇİTİL",
         "unvan": "Kurucu Başkan",
