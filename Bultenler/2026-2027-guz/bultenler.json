@@ -3,12 +3,12 @@
         "id": 1,
         "baslik": "Mühendislik Bülteni - Sayı 1",
         "tarih": "28.09.2026",
-        "resim_yolu": "Bultenler/Resimler/bulten1.jpg"
+        "resim_yolu": "Bultenler/2026-2027-guz/Resimler/bulten1.jpg"
     },
     {
         "id": 2,
         "baslik": "Mühendislik Bülteni - Sayı 2",
         "tarih": "05.10.2026",
-        "resim_yolu": "Bultenler/Resimler/bulten2.png"
+        "resim_yolu": "Bultenler/2026-2027-guz/Resimler/bulten2.png"
     }
 ]
