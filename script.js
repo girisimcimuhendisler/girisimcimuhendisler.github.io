@@ -123,6 +123,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const sectionId = this.dataset.section;
             if (sectionId) {
                 switchSection(sectionId);
+                history.pushState(null, null, '#section-' + sectionId);
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         });
