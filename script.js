@@ -499,4 +499,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     init();
 
+    const hash = window.location.hash; // URL'deki hash değerini alır (Örn: #section-faaliyetler)
+    
+    if (hash && hash.startsWith("#section-")) {
+        // Baştaki "#section-" kısmını kesip sadece ismini alıyoruz (Örn: "faaliyetler")
+        const sectionId = hash.replace("#section-", "");
+        
+        // script.js içindeki mevcut "sections" listende bu sekme var mı diye kontrol edip sekmeyi açıyoruz
+        if (sections[sectionId]) {
+            switchSection(sectionId);
+        }
+    }
+
 });
