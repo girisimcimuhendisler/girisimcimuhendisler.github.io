@@ -28,5 +28,11 @@
         "baslik": "Mühendislik Bülteni - Sayı 5",
         "tarih": "26.10.2026",
         "resim_yolu": "Bultenler/2026-2027-guz/Resimler/bulten5.png"
+    },
+    {
+        "id": 6,
+        "baslik": "Mühendislik Bülteni - Sayı 6",
+        "tarih": "1.11.2026",
+        "resim_yolu": "Bultenler/2026-2027-guz/Resimler/bulten6.jpeg"
     }
 ]
